@@ -35,5 +35,5 @@ public interface Cell {
 	public void welcomePlayer(Player player);
 
 	/** gets the player in this cell <tt>null</tt> if none */
-	public Player getPlayer();
+	public Player getPlayer();CCjulien
 }// Cell
