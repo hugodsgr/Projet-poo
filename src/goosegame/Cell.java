@@ -36,5 +36,5 @@ public interface Cell {
 
 	/** gets the player in this cell <tt>null</tt> if none */
 	public Player getPlayer();CCjulien
-regarder je suis ici
+regarder lol test suis ici
 }// Cell
