@@ -28,6 +28,9 @@ public class Game {
 				if(newIndex > board.getNbCells()){
 					newIndex = 2* board.getNbCells() - newIndex;
 				}
+				
+				currentCell.welcomePlayer(null);
+				
 				Cell newCell = board.getCell(newIndex);
 				if(newCell.isBusy()) {
 					moveBack1(newCell, p);

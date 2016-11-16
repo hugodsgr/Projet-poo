@@ -2,12 +2,13 @@ package goosegame;
 
 public abstract class Board {
 
-	private final int nbCells;
-	private Cell[] cells;
+	protected final int nbCells;
+	protected Cell[] cells;
 	
 	
 	public Board(int nbCells) {
 		this.nbCells = nbCells+1;
+		cells = new Cell[this.nbCells];
 	}
 	
 	public abstract void initBoard();

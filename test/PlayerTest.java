@@ -1,13 +1,15 @@
-package tests;
+package test;
 
-import static org.junit.Assert.*;
-import goosegame.BasicCell;
-import goosegame.Cell;
-import goosegame.Player;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+
+import goosegame.Cell;
+import goosegame.Player;
 
 public class PlayerTest {
 
