@@ -24,7 +24,7 @@ public class BasicCell implements Cell{
 
 	@Override
 	public int handleMove(int diceThrow) {
-		return index + diceThrow;
+		return index;
 	}
 
 	@Override

@@ -47,4 +47,7 @@ public class Player {
         int result = oneDieThrow() + oneDieThrow();
         return result;
     }
+	public String getName() {
+		return name;
+	}
 }// Player

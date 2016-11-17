@@ -1,5 +1,6 @@
 package goosegame;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -9,6 +10,7 @@ public class Game {
 	
 	public Game(Board board) {
 		this.board= board;
+		thePlayers = new ArrayList();
 	}
 	
 	public void addPlayer(Player p){
@@ -17,17 +19,23 @@ public class Game {
 	
 	public void play(){
 		boolean win = false;
-		Player winner;
 		while(!win)
 			for(Player p : thePlayers){
 				Cell currentCell = p.getCell();
-				if(!currentCell.canBeLeft()) continue;
+				System.out.print(p.getName() + " is in cell " + currentCell.getIndex());
+				if(!currentCell.canBeLeft()) {
+					System.out.print(", " + p.getName() + " cannot play.\n");
+					continue;
+				}
 				
 				int dice = p.twoDiceThrow();
-				int newIndex = p.getCell().handleMove(dice);
-				if(newIndex > board.getNbCells()){
-					newIndex = 2* board.getNbCells() - newIndex;
+				System.out.print(", " + p.getName() + " throws a " + dice);
+				int newIndex = getInBoundIndex(p.getCell().getIndex() + dice);
+				if(board.getCell(newIndex).handleMove(dice) != newIndex){
+					System.out.print(" and reaches cell " + newIndex);
+					newIndex = getInBoundIndex(board.getCell(newIndex).handleMove(dice));
 				}
+				System.out.print(" and reaches cell " + newIndex);
 				
 				currentCell.welcomePlayer(null);
 				
@@ -38,18 +46,21 @@ public class Game {
 					p.setCell(newCell);
 					newCell.welcomePlayer(p);
 				}
-				if(p.getCell().equals(board.getCell(board.getNbCells()))){
+				System.out.print("\n");
+				if(p.getCell().equals(board.getCell(board.getNbCells()-1))){
 					//win;
 					win = true;
-					winner = p;
+					System.out.println(p.getName() + " has won");
 					break;
 				}
 			}
 	}
 	
 	private void moveBack1(Cell cellDest, Player p){
+		System.out.print(" cell is busy, ");
 		Player oldPlayer = cellDest.getPlayer();
 		Cell prevCell = board.getCell(cellDest.getIndex()-1);
+		System.out.println(oldPlayer.getName() + " is sent to cell " + prevCell.getIndex());
 		if(prevCell.isBusy()){
 			moveBack1(prevCell, oldPlayer);
 		}			
@@ -57,6 +68,10 @@ public class Game {
 		prevCell.welcomePlayer(oldPlayer);
 		p.setCell(cellDest);
 		cellDest.welcomePlayer(p);
+	}
+	
+	private int getInBoundIndex(int index){
+		return index >= board.getNbCells() ? 2* board.getNbCells() - index -2: index;
 	}
 	
 }

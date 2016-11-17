@@ -8,7 +8,7 @@ public class BounceCell extends BasicCell{
 	
 	@Override
 	public int handleMove(int diceThrow) {
-		return index + 2 * diceThrow;
+		return index +  diceThrow;
 	}
 
 }
