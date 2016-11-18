@@ -1,5 +1,7 @@
 package goosegame.cells;
 
+import goosegame.Player;
+
 public class TrapCell extends BasicCell {
 
 	public TrapCell(int i) {
@@ -9,6 +11,16 @@ public class TrapCell extends BasicCell {
 	@Override
 	public boolean canBeLeft() {
 		return false;
+	}
+	
+	@Override
+	public void welcomePlayer(Player player) {
+		super.welcomePlayer(player);
+	}
+	
+	@Override
+	public String toString() {
+		return "Trap cell";
 	}
 	
 }

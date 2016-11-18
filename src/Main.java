@@ -9,9 +9,9 @@ public class Main {
 	public static void main(String[] args){
 		Board b = new ClassicBoard();
 		b.initBoard();
-		Player p1 = new Player("P1", b.getCell(0));
-		Player p2 = new Player("P2", b.getCell(0));
-		Player p3 = new Player("P3", b.getCell(0));
+		Player p1 = new Player("Chloé", b.getCell(0));
+		Player p2 = new Player("Maxou", b.getCell(0));
+		Player p3 = new Player("Julien", b.getCell(0));
 		
 		
 		Game g = new Game(b);

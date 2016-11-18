@@ -10,7 +10,7 @@ public class Game {
 	
 	public Game(Board board) {
 		this.board= board;
-		thePlayers = new ArrayList();
+		thePlayers = new ArrayList<Player>();
 	}
 	
 	public void addPlayer(Player p){
@@ -19,33 +19,35 @@ public class Game {
 	
 	public void play(){
 		boolean win = false;
-		while(!win)
+		while(!win){
 			for(Player p : thePlayers){
 				Cell currentCell = p.getCell();
-				System.out.print(p.getName() + " is in cell " + currentCell.getIndex());
+				System.out.print(p.getName() + " is in cell " + currentCell.getIndex() + " : ");
 				if(!currentCell.canBeLeft()) {
-					System.out.print(", " + p.getName() + " cannot play.\n");
+					System.out.print(p.getName() + " cannot play.\n");
 					continue;
-				}
-				
+				}				
 				int dice = p.twoDiceThrow();
-				System.out.print(", " + p.getName() + " throws a " + dice);
+				System.out.print(p.getName() + " throws a " + dice);
 				int newIndex = getInBoundIndex(p.getCell().getIndex() + dice);
 				if(board.getCell(newIndex).handleMove(dice) != newIndex){
-					System.out.print(" and reaches cell " + newIndex);
+					System.out.print(" => "+p.getName() + " reaches cell " + newIndex + " (" + board.getCell(newIndex) + ")");
 					newIndex = getInBoundIndex(board.getCell(newIndex).handleMove(dice));
 				}
-				System.out.print(" and reaches cell " + newIndex);
+				System.out.print(" => "+p.getName() + " reaches cell " + newIndex +  " (" + board.getCell(newIndex) + ").");
 				
 				currentCell.welcomePlayer(null);
 				
 				Cell newCell = board.getCell(newIndex);
 				if(newCell.isBusy()) {
-					moveBack1(newCell, p);
-				}else{
-					p.setCell(newCell);
-					newCell.welcomePlayer(p);
+					System.out.print(" Cell is busy : ");
+					Player oldPlayer = newCell.getPlayer();
+					System.out.print(oldPlayer.getName() + " is sent to cell " + currentCell.getIndex() + " (" + currentCell + ").");	
+					oldPlayer.setCell(currentCell);
+					currentCell.welcomePlayer(oldPlayer);
 				}
+				p.setCell(newCell);
+				newCell.welcomePlayer(p);
 				System.out.print("\n");
 				if(p.getCell().equals(board.getCell(board.getNbCells()-1))){
 					//win;
@@ -54,20 +56,7 @@ public class Game {
 					break;
 				}
 			}
-	}
-	
-	private void moveBack1(Cell cellDest, Player p){
-		System.out.print(" cell is busy, ");
-		Player oldPlayer = cellDest.getPlayer();
-		Cell prevCell = board.getCell(cellDest.getIndex()-1);
-		System.out.println(oldPlayer.getName() + " is sent to cell " + prevCell.getIndex());
-		if(prevCell.isBusy()){
-			moveBack1(prevCell, oldPlayer);
-		}			
-		oldPlayer.setCell(prevCell);
-		prevCell.welcomePlayer(oldPlayer);
-		p.setCell(cellDest);
-		cellDest.welcomePlayer(p);
+		}
 	}
 	
 	private int getInBoundIndex(int index){

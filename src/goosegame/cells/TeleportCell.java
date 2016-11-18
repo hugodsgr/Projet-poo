@@ -13,5 +13,10 @@ public class TeleportCell extends BasicCell {
 	public int handleMove(int diceThrow) {
 		return teleportIndex;
 	}
+	
+	@Override
+	public String toString() {
+		return "Teleport cell";
+	}
 
 }

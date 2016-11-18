@@ -15,5 +15,10 @@ public class StartCell extends BasicCell {
 	
 	@Override
 	public void welcomePlayer(Player player) {}
+	
+	@Override
+	public String toString() {
+		return "Start cell";
+	}
 
 }

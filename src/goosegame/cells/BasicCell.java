@@ -42,5 +42,10 @@ public class BasicCell implements Cell{
 	public Player getPlayer() {
 		return player;
 	}
+	
+	@Override
+	public String toString() {
+		return "Basic cell";
+	}
 
 }

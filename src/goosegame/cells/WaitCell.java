@@ -23,5 +23,10 @@ public class WaitCell extends BasicCell{
 		super.welcomePlayer(player);
 		currentWait = 0;
 	}
+	
+	@Override
+	public String toString() {
+		return "Wait cell";
+	}
 
 }

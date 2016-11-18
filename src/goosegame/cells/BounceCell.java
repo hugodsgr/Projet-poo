@@ -11,4 +11,8 @@ public class BounceCell extends BasicCell{
 		return index +  diceThrow;
 	}
 
+	@Override
+	public String toString() {
+		return "Bounce cell";
+	}
 }
