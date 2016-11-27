@@ -6,7 +6,12 @@ import goosegame.cells.StartCell;
 import goosegame.cells.TeleportCell;
 import goosegame.cells.TrapCell;
 import goosegame.cells.WaitCell;
-
+/**
+ * The classic goose game board, it extends {@link Board}
+ * @see Board
+ * @author root
+ *
+ */
 public class ClassicBoard extends Board{
 
 	public ClassicBoard() {

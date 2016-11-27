@@ -5,7 +5,10 @@ import goosegame.Player;
 
 public class Main {
 
-	
+/**
+ * Launcher	
+ * @param args
+ */
 	public static void main(String[] args){
 		Board b = new ClassicBoard();
 		b.initBoard();

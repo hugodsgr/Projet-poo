@@ -2,21 +2,33 @@ package goosegame;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Game class
+ *
+ */
 public class Game {
 
 	private List<Player> thePlayers;
 	private Board board;
-	
+	/**
+	 * Constructor
+	 * @param board the board use for the game
+	 */
 	public Game(Board board) {
 		this.board= board;
 		thePlayers = new ArrayList<Player>();
 	}
-	
+	/**
+	 * add a player to the game
+	 * @param p the player to be added
+	 */
 	public void addPlayer(Player p){
 		thePlayers.add(p);
 	}
 	
+	/**
+	 * Main method, plays the game until there is a winner 
+	 */
 	public void play(){
 		boolean win = false;
 		while(!win){
@@ -59,6 +71,11 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * given a index it return the index which is in th board
+	 * @param index not in the board
+	 * @return index int the board
+	 */
 	private int getInBoundIndex(int index){
 		return index >= board.getNbCells() ? 2* board.getNbCells() - index -2: index;
 	}
