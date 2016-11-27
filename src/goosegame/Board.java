@@ -28,7 +28,7 @@ public abstract class Board {
 	/**
 	 * Getter : get the cell at a given index
 	 * @param i index of the cell
-	 * @return
+	 * @return The cell at index i
 	 */
 	public Cell getCell(int i){
 		return cells[i];
@@ -36,7 +36,7 @@ public abstract class Board {
 	
 	/**
 	 * Getter : get the number of cells in the board (include the cell 0)
-	 * @return
+	 * @return the number of cells
 	 */
 	public int getNbCells() {
 		return nbCells;

@@ -27,7 +27,8 @@ public class Game {
 	}
 	
 	/**
-	 * Main method, plays the game until there is a winner 
+	 * Main method, plays the game until there is a winner
+	 * and display each steps
 	 */
 	public void play(){
 		boolean win = false;

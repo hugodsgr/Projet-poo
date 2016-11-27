@@ -9,7 +9,6 @@ import goosegame.cells.WaitCell;
 /**
  * The classic goose game board, it extends {@link Board}
  * @see Board
- * @author root
  *
  */
 public class ClassicBoard extends Board{

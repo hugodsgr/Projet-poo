@@ -3,11 +3,14 @@ package goosegame.cells;
 import goosegame.Player;
 
 /**
- * Start cell 
+ * Start cell it has to be the first cell on evry board, extends {@link BasicCell}
  *
  */
 public class StartCell extends BasicCell {
 
+	/**
+	 * Constructor
+     */
 	public StartCell() {
 		super(0);
 	}
@@ -19,7 +22,11 @@ public class StartCell extends BasicCell {
 	public boolean isBusy() {
 		return false;
 	}
-	
+
+	/**
+	 * Does nothing
+	 * @param player tbe player arriving on this cell
+     */
 	@Override
 	public void welcomePlayer(Player player) {}
 	

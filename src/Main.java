@@ -7,14 +7,14 @@ public class Main {
 
 /**
  * Launcher	
- * @param args
+ * @param args launch arguments
  */
 	public static void main(String[] args){
 		Board b = new ClassicBoard();
 		b.initBoard();
-		Player p1 = new Player("Chloé", b.getCell(0));
-		Player p2 = new Player("Maxou", b.getCell(0));
-		Player p3 = new Player("Julien", b.getCell(0));
+		Player p1 = new Player("PLAYER 1", b.getCell(0));
+		Player p2 = new Player("PLAYER 2", b.getCell(0));
+		Player p3 = new Player("PLAYER 3", b.getCell(0));
 		
 		
 		Game g = new Game(b);

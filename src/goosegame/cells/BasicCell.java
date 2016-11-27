@@ -43,7 +43,6 @@ public class BasicCell implements Cell{
 	@Override
 	public void welcomePlayer(Player player) {
 		this.player = player;
-		
 	}
 
 	@Override
